@@ -1,6 +1,8 @@
 #include "foxgfx.h"
 #include "foxfs.h"
 #include "common.h"
+
+#define fixedSprHflip  ((1 << 4) | FUNC_Texture | (UseTexture << 16)
 VECTOR FNORMS[] =
 {
     POStoFIXED(0, -1, 0),
@@ -311,7 +313,7 @@ Uint16 FxClipDataSprite(Uint16 Dir,Sint16 XA, Sint16 YA, Sint16 XB, Sint16 YB, S
                         return sprNoflip;
                         break;
                         case (Uint16)1 :
-                        return sprHflip;
+                        return fixedSprHflip;
                         break;
                         case (Uint16)2 :
                         return sprVflip;
@@ -327,7 +329,7 @@ Uint16 FxClipDataSprite(Uint16 Dir,Sint16 XA, Sint16 YA, Sint16 XB, Sint16 YB, S
                     *OrOut = 1;
                     switch(Dir) { // these switch statements are for orientation stuff
                         case (Uint16)0 :
-                        return sprHflip;
+                        return fixedSprHflip;
                         break;
                         case (Uint16)1 :
                         return sprNoflip;
@@ -350,7 +352,7 @@ Uint16 FxClipDataSprite(Uint16 Dir,Sint16 XA, Sint16 YA, Sint16 XB, Sint16 YB, S
                         return sprVflip;
                         break;
                         case (Uint16)2 :
-                        return sprHflip;
+                        return fixedSprHflip;
                         break;
                         case (Uint16)3 :
                         return sprNoflip;
@@ -370,7 +372,7 @@ Uint16 FxClipDataSprite(Uint16 Dir,Sint16 XA, Sint16 YA, Sint16 XB, Sint16 YB, S
                 return sprNoflip;
                 break;
                 case (Uint16)3 :
-                return sprHflip;
+                return fixedSprHflip;
                 break;
             };
         
@@ -413,7 +415,7 @@ Uint16 FxClipDataNClipSprite(Uint16 Dir,Sint16 XA, Sint16 YA, Sint16 XB, Sint16 
                         return sprNoflip;
                         break;
                         case (Uint16)1 :
-                        return sprHflip;
+                        return fixedSprHflip;
                         break;
                         case (Uint16)2 :
                         return sprVflip;
@@ -429,7 +431,7 @@ Uint16 FxClipDataNClipSprite(Uint16 Dir,Sint16 XA, Sint16 YA, Sint16 XB, Sint16 
                     *OrOut = 1;
                     switch(Dir) { // these switch statements are for orientation stuff
                         case (Uint16)0 :
-                        return sprHflip;
+                        return fixedSprHflip;
                         break;
                         case (Uint16)1 :
                         return sprNoflip;
@@ -452,7 +454,7 @@ Uint16 FxClipDataNClipSprite(Uint16 Dir,Sint16 XA, Sint16 YA, Sint16 XB, Sint16 
                         return sprVflip;
                         break;
                         case (Uint16)2 :
-                        return sprHflip;
+                        return fixedSprHflip;
                         break;
                         case (Uint16)3 :
                         return sprNoflip;
@@ -472,7 +474,7 @@ Uint16 FxClipDataNClipSprite(Uint16 Dir,Sint16 XA, Sint16 YA, Sint16 XB, Sint16 
                 return sprNoflip;
                 break;
                 case (Uint16)3 :
-                return sprHflip;
+                return fixedSprHflip;
                 break;
             };
         
@@ -511,9 +513,9 @@ Uint16 fxClipPoly(Uint16 Dir, Sint16 XA, Sint16 YA, Sint16 XB, Sint16 YB, Sint16
         *OrOut = 1;
         switch(Dir) { // these switch statements are for orientation stuff
             case (Uint16)sprNoflip :
-            return sprHflip;
+            return fixedSprHflip;
             break;
-            case (Uint16)sprHflip :
+            case (Uint16)fixedSprHflip :
             return sprNoflip;
             break;
             case (Uint16)sprVflip :
@@ -531,14 +533,14 @@ Uint16 fxClipPoly(Uint16 Dir, Sint16 XA, Sint16 YA, Sint16 XB, Sint16 YB, Sint16
                 case (Uint16)sprNoflip :
                 return sprVflip;
                 break;
-                case (Uint16)sprHflip :
+                case (Uint16)fixedSprHflip :
                 return sprHVflip;
                 break;
                 case (Uint16)sprVflip :
                 return sprNoflip;
                 break;
                 case (Uint16)sprHVflip :
-                return sprHflip;
+                return fixedSprHflip;
                 break;
             };
     };
@@ -549,11 +551,11 @@ Uint16 fxClipPoly(Uint16 Dir, Sint16 XA, Sint16 YA, Sint16 XB, Sint16 YB, Sint16
                 case (Uint16)sprNoflip :
                 return sprHVflip;
                 break;
-                case (Uint16)sprHflip :
+                case (Uint16)fixedSprHflip :
                 return sprVflip;
                 break;
                 case (Uint16)sprVflip :
-                return sprHflip;
+                return fixedSprHflip;
                 break;
                 case (Uint16)sprHVflip :
                 return sprNoflip;
