@@ -2,7 +2,7 @@
 #include "foxfs.h"
 #include "common.h"
 
-#define fixedSprHflip  ((1 << 4) | FUNC_Texture | (UseTexture << 16)
+#define fixedSprHflip  ((1 << 4) | FUNC_Texture | (UseTexture << 16))
 VECTOR FNORMS[] =
 {
     POStoFIXED(0, -1, 0),

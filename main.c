@@ -92,7 +92,7 @@ int main(void)
             slTranslate(0,toFIXED(0),0);
             slRotX(AngleX);
             slRotY(AngleY);
-            FXDrawMeshStaticShaded(&Sonic, CL_Gouraud | CL_Replace, LVec);
+            FXDrawMeshAnim(&Sonic, CL_Gouraud | CL_Replace, Lerp, LVec);
             slPopMatrix();
         }
         slPopMatrix();
